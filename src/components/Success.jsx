@@ -1,7 +1,7 @@
 export default function Success() {
     return (
-        <>
-            <h1>Success Sayfası</h1>
-        </>
-    )
+        <div>
+            <h1>Login Başarılı 🎉</h1>
+        </div>
+    );
 }

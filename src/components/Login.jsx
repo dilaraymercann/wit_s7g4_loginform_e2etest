@@ -36,7 +36,8 @@ export default function Login() {
     }
 
     function handleSubmit(event) {
-        navigate("./Success");
+        event.preventDefault();
+        navigate("/success");
     }
 
     return (

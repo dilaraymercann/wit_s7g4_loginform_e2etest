@@ -42,7 +42,7 @@ export default function Login() {
 
     return (
         <>
-            <Form>
+            <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label for="exampleEmail">
                         Email
@@ -55,8 +55,9 @@ export default function Login() {
                         value={form.email}
                         invalid={!emailRegex.test(form.email)}
                         onChange={handleChange}
+                        data-cy="email-input"
                     />
-                    {!emailRegex.test(form.email) && <FormFeedback>
+                    {!emailRegex.test(form.email) && <FormFeedback data-cy="email-error">
                         {errorMessages.email}
                     </FormFeedback>}
 
@@ -73,19 +74,20 @@ export default function Login() {
                         value={form.password}
                         invalid={!passwordRegex.test(form.password)}
                         onChange={handleChange}
+                        data-cy="password-input"
                     />
-                    {!passwordRegex.test(form.password) && <FormFeedback>
+                    {!passwordRegex.test(form.password) && <FormFeedback data-cy="password-error">
                         {errorMessages.password}
                     </FormFeedback>}
                 </FormGroup>
                 <FormGroup check>
-                    <Input type="checkbox" name="terms" checked={form.terms} onChange={handleChange} />
+                    <Input type="checkbox" name="terms" checked={form.terms} onChange={handleChange} data-cy="terms-checkbox" />
                     {' '}
                     <Label check>
                         {errorMessages.terms}
                     </Label>
                 </FormGroup>
-                <Button disabled={!isValid} color="primary" onClick={handleSubmit}>
+                <Button disabled={!isValid} color="primary" onClick={handleSubmit} data-cy="submit-button" >
                     Submit
                 </Button>
             </Form>
